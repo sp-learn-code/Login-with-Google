@@ -4,14 +4,14 @@
 
 # dependencies
 /react-firebase-app/node_modules/
-/.pnp
+/react-firebase-app/.pnp
 .pnp.js
 
 # testing
-/coverage
+/react-firebase-app/coverage
 
 # production
-/build
+/react-firebase-app/build
 
 # misc
 .DS_Store
