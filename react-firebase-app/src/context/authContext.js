@@ -4,7 +4,8 @@ import {createUserWithEmailAndPassword,
         onAuthStateChanged,
         signOut,
         GoogleAuthProvider,
-        signInWithPopup
+        signInWithPopup,
+        sendPasswordResetEmail
 } from "firebase/auth"
 import {auth} from "../firebase"
 
@@ -35,6 +36,8 @@ export function AuthProvider({children}){
     }
 
     const logout = () => signOut(auth)
+
+    const resetPassword = (email) => sendPasswordResetEmail(auth, email)
     
     //Ejecuta funcion apenas carga el componente
     useEffect(()=>{
@@ -47,7 +50,7 @@ export function AuthProvider({children}){
 
     return (
         <authContext.Provider 
-        value={{signup, login, user, loading, logout, loginWithGoogle}}
+        value={{signup, login, user, loading, logout, loginWithGoogle, resetPassword}}
         >
             {children}
         </authContext.Provider>
